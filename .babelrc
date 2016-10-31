@@ -7,7 +7,8 @@
     ["import", {
       // "style": "css", // 'less',
       "libraryName": "antd-mobile"
-    }]
+    }],
+    "transform-object-rest-spread"
   ]
 
 }

@@ -1,0 +1,5 @@
+{
+  "extends": "react-app"
+
+  // Map from global var to bool specifying if it can be 
+}
