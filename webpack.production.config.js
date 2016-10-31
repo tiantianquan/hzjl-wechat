@@ -9,7 +9,8 @@ var WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 loaders.push({
 	test: /[\/\\]src[\/\\].*\.css/,
 	exclude: /(node_modules|bower_components|public)/,
-	loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]')
+	// loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]')
+	loader: ExtractTextPlugin.extract('style', 'css!postcss')
 });
 
 // local scss modules
@@ -21,7 +22,7 @@ loaders.push({
 // global css files
 loaders.push({
 	test: /[\/\\](node_modules|global)[\/\\].*\.css$/,
-	loader: ExtractTextPlugin.extract('style', 'css')
+	loader: ExtractTextPlugin.extract('style', 'css!postcss')
 });
 
 module.exports = {
