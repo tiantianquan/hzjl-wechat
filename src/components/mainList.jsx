@@ -1,6 +1,8 @@
 import React from 'react'
 import { ListView } from 'antd-mobile'
+import  egData from '../api/egData'
 
+let data = egData
 
 let index = data.length - 1;
 
