@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-// import 'antd-mobile/dist/antd-mobile.css'
+import 'antd-mobile/dist/antd-mobile.css'
 import './style.css'
 
 import { SearchBar } from 'antd-mobile'
-import { Flex, NavBar, Icon, WingBlank, WhiteSpace } from 'antd-mobile'
+import {Pagination,Icon, Flex, NavBar, WingBlank, WhiteSpace } from 'antd-mobile'
 
 import MainList from './components/mainList.jsx'
 
@@ -40,22 +40,22 @@ const FlexExample = React.createClass({
         <WingBlank size="lg">
           <Flex>
             <Flex.Item>
-              <a href="#">今日</a>
+              <a href="#">分类</a>
             </Flex.Item>
             <Flex.Item>
-              <a>今日</a>
+              <a>分类</a>
             </Flex.Item>
             <Flex.Item>
-              <a>今日</a>
+              <a>分类</a>
             </Flex.Item>
             <Flex.Item>
-              <a>今日</a>
+              <a>分类</a>
             </Flex.Item>
             <Flex.Item>
-              <a>今日</a>
+              <a>分类</a>
             </Flex.Item>
             <Flex.Item>
-              <a>今日</a>
+              <a>分类</a>
             </Flex.Item>
           </Flex>
         </WingBlank>
@@ -77,16 +77,16 @@ const App = React.createClass({
         // leftContent="返回" 
         mode="dark" 
         // onLeftClick={() => console.log('onLeftClick')}
-          // rightContent={[<Icon key="0" type="user" />, <Icon key="1" type="search" />, <Icon key="2" type="plus" />]}
-          // style={{
-          //   zIndex:999,
-          //   position:'fixed',
-          //   width:'100%'
-          // }}
-          >Title</NavBar>
+          >环渤海</NavBar>
         <FlexExample />
         <SearchBarExample />
         <MainList />
+         <Pagination
+              total={5}
+              current={1}
+              prevText={'上一页'}
+              nextText={<div>下一页<Icon type="right" /></div>}
+            />
       </div>
 
     )

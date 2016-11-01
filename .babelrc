@@ -5,7 +5,7 @@
   ],
   "plugins": [
     ["import", {
-      "style": "css", // 'less',
+      // "style": "css", // 'less',
       "libraryName": "antd-mobile"
     }],
     "transform-object-rest-spread"

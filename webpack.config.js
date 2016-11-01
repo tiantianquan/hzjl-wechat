@@ -7,7 +7,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 const pxtorem = require('postcss-pxtorem');
 
 
-const HOST = process.env.HOST || "192.168.1.247";
+const HOST = process.env.HOST || "0.0.0.0";
 const PORT = process.env.PORT || "8888";
 
 //global css
