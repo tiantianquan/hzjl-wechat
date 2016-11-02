@@ -1,31 +1,25 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+// import promiseMiddleware from 'redux-promise-middleware'
+import thunk from 'redux-thunk'
 
-// import 'antd-mobile/dist/antd-mobile.css'
-import './style.css'
+import MainView from './containers/mainView.jsx'
+import rootReducer from './reducers'
 
-
-import MainList from './components/mainList.jsx'
-import MySearchBar from './components/searchBar.jsx'
-import CategoryGrid from './components/categoryGrid.jsx'
-import PageNum from './components/pageNum.jsx'
-import Nav from './components/nav.jsx'
+let createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
+let store = createStoreWithMiddleware(rootReducer)
 
 const App = React.createClass({
   render() {
     return (
-      <div>
-        <Nav />
-        <CategoryGrid />
-        <MySearchBar />
-        <MainList />
-        <PageNum />
-      </div>
+      <Provider store={store}>
+        <MainView />
+      </Provider>
     )
   }
 })
 
-
 const mountNode = document.querySelector("#app")
-ReactDOM.render(<App />, mountNode);
-
+ReactDOM.render(<App />, mountNode)
