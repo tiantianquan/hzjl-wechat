@@ -12,13 +12,15 @@ function getArticleListStart(page, per_page) {
 function getArticleListLoading() {
   return {
     type: actionType.GET_ARTICLE_LIST_LOADING,
+    isLoading:true
   }
 }
 
 function getArticleListEnd(data) {
   return {
     type: actionType.GET_ARTICLE_LIST_END,
-    data
+    data,
+    isLoading:false
   }
 }
 export default {

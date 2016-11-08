@@ -21,13 +21,15 @@ const MainView = React.createClass({
   },
 
   render() {
+    const {isLoading, articleList} = this.props
     return (
       <div>
         <Nav />
         <CategoryGrid />
         <MySearchBar />
-        <MainList articleList={this.props.articleList} />
-        <PageNum />
+        <MainList articleList={articleList} isLoading={isLoading} />
+        {!isLoading ? <PageNum /> : null}
+
       </div>
     )
   }

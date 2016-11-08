@@ -1,8 +1,8 @@
 import React from 'react'
 import { ListView } from 'antd-mobile'
-import egData from '../api/egData'
 import MainListRow from './mainListRow.jsx'
 import Separator from './separator.jsx'
+import LoadingPannel from './loadingPannel.jsx'
 
 
 const MainList = React.createClass({
@@ -24,7 +24,10 @@ const MainList = React.createClass({
   },
 
   render() {
-    const {articleList} = this.props
+    const {articleList,isLoading} = this.props
+    if(!!isLoading){
+      return <LoadingPannel />
+    }
     return (
       <ListView
         dataSource={this.ds.cloneWithRows(articleList)}
@@ -41,5 +44,6 @@ const MainList = React.createClass({
     )
   },
 })
+
 
 export default MainList
