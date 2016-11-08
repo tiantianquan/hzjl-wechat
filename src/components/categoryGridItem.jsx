@@ -1,5 +1,5 @@
 import React from 'react'
-import { WhiteSpace, Flex } from 'antd-mobile'
+import { WhiteSpace } from 'antd-mobile'
 
 const CategoryGridItem = () => (
   <a style={{ display: 'block' }}

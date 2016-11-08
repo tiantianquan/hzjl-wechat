@@ -16,13 +16,17 @@ import '../style.css'
 
 
 const MainView = React.createClass({
+  componentWillMount() {
+    this.props.actions.getArticleListStart(1, 10)
+  },
+
   render() {
     return (
       <div>
         <Nav />
         <CategoryGrid />
         <MySearchBar />
-        <MainList />
+        <MainList articleList={this.props.articleList} />
         <PageNum />
       </div>
     )

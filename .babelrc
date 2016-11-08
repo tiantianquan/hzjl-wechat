@@ -8,7 +8,8 @@
       "style": "css", // 'less',
       "libraryName": "antd-mobile"
     }],
-    "transform-object-rest-spread"
+    "transform-object-rest-spread",
+    "transform-async-to-generator"
   ]
 
 }

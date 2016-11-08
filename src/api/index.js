@@ -4,10 +4,7 @@ import { timeout } from '../util'
 
 import egData from './egdata'
 
-//TODO:添加错误处理
-/**
- * API 封装
- */
+
 class Api {
   static url = '/getDefaultData'
 

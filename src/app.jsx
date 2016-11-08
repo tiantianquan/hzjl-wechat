@@ -9,7 +9,7 @@ import MainView from './containers/mainView.jsx'
 import rootReducer from './reducers'
 
 let createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
-let store = createStoreWithMiddleware(rootReducer)
+let store = createStoreWithMiddleware(rootReducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 const App = React.createClass({
   render() {

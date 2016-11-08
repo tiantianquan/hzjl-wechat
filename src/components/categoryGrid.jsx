@@ -1,5 +1,5 @@
 import React from 'react'
-import { WhiteSpace, WingBlank, Flex } from 'antd-mobile'
+import {  WingBlank, Flex } from 'antd-mobile'
 import CategoryGridItem from './categoryGridItem.jsx'
 
 const CategoryGrid = React.createClass({
