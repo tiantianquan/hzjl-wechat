@@ -14,10 +14,21 @@ import actions from '../actions'
 // import 'antd-mobile/dist/antd-mobile.css'
 import '../style.css'
 
+const CONFIG={
+  /**
+   * 每页条数
+   */
+  perPage:10
+}
+
 
 const MainView = React.createClass({
+  _starter(){
+    this.props.actions.getArticleListStart(1, CONFIG.perPage)
+  },
+
   componentWillMount() {
-    this.props.actions.getArticleListStart(1, 10)
+    this._starter()   
   },
 
   render() {
