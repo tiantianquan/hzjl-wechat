@@ -1,9 +1,9 @@
 ﻿var map = new BMap.Map(
   "allmap", {
     //最小缩放
-    minZoom: 7,
-    //最大缩放
-    maxZoom: 10
+    // minZoom: 7,
+     //最大缩放
+    // maxZoom: 10
   }
 )
 map.centerAndZoom('北京', 7)
