@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "antd-mobile": "^0.9.3",
+    "antd-mobile": "0.9.3",
     "axios": "^0.15.2",
     "babel": "^6.5.2",
     "babel-core": "^6.17.0",
