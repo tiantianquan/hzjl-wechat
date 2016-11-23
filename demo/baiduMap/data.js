@@ -1,31 +1,40 @@
 var provinceData = [{
   n: "北京",
   g: "116.395645,39.929986|12",
-  fillColor:"#1abc9c"
+  fillColor: "#1abc9c",
+  viewZ: 9
 }, {
   n: "天津",
   g: "117.210813,39.14393|12",
-  fillColor:"#2ecc71",
+  fillColor: "#2ecc71",
+  viewZ: 9
 }, {
   "n": "山东",
   "g": "118.527663,36.09929|8",
-  fillColor:'#3498db',
+  fillColor: '#3498db',
+  viewZ: 7,
+  viewCenter:'潍坊'
 }, {
   "n": "山西",
   "g": "112.515496,37.866566|7",
-  fillColor:'#9b59b6'
+  fillColor: '#9b59b6',
+  viewZ: 7
 }, {
   "n": "辽宁",
   "g": "122.753592,41.6216|8",
-  fillColor:'##34495e'
+  fillColor: '#34495e',
+  viewZ: 7
 }, {
   "n": "内蒙古",
   "g": "114.415868,43.468238|5",
-  fillColor:'#95a5a6'
+  fillColor: '#95a5a6',
+  viewZ: 5
 }, {
   "n": "河北",
   "g": "115.661434,38.61384|7",
-  fillColor:'#e67e22'
+  fillColor: '#e67e22',
+  viewZ: 7,
+  viewCenter:'沧州'
 }]
 
 

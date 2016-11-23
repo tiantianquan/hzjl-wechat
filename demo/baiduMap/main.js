@@ -16,8 +16,8 @@ map.disableDoubleClickZoom()
 map.disablePinchToZoom()
 
 map.setMapStyle({
-    styleJson: mapStyle
-  })
+  styleJson: mapStyle
+})
 
 
 /**
@@ -74,11 +74,17 @@ City.prototype.addMarker = function () {
     border: null
   })
   marker.setLabel(label)
-    marker.addEventListener('click',function(){
-      alert(1)
-    })
+  marker.addEventListener('click', function () {
+    // alert(1)
+  })
   map.addOverlay(marker)
+  this.marker = marker
 }
+
+City.prototype.clearMarker = function(){
+  map.removeOverlay(this.marker)
+}
+
 
 
 /**
@@ -91,6 +97,10 @@ var Province = function (baiduData, opt) {
         this[key] = opt[key];
       }
     }
+    /**
+     * 覆盖物列表
+     */
+    this.plys = []
     Province.list.push(this)
   }
   /**
@@ -105,11 +115,11 @@ Province.prototype.getBoundary = function () {
   var boundary = new BMap.Boundary()
   var that = this
   boundary.get(this.name, function (rs) {
-    var pointArray = []
     for (var i = 0; i < rs.boundaries.length; i++) {
       var ply = that.drawMapBoundary(rs.boundaries[i])
       map.addOverlay(ply)
       that.registEvent(ply)
+      that.plys.push(ply)
         // pointArray = pointArray.concat(ply.getPath())
     }
   })
@@ -136,8 +146,6 @@ Province.prototype.registEvent = function (overlay) {
   var that = this
   overlay.addEventListener('click', function (e) {
     console.log(e)
-    e.preventDefault()
-    return
   })
 }
 
@@ -151,7 +159,7 @@ Province.prototype.addName = function () {
   }
   var label = new BMap.Label(this.name, opts) // 创建文本标注对象
   label.setStyle({
-    color: "#fff",
+    color: "#000",
     fontSize: "15px",
     // height: "20px",
     // lineHeight: "2px",
@@ -162,6 +170,33 @@ Province.prototype.addName = function () {
   })
   this.registEvent(label)
   map.addOverlay(label)
+}
+
+Province.prototype.getPointInProvinces = function (point) {
+  var flag = false
+  this.plys.forEach(function (ply) {
+    if (ply.containPoint(point)) {
+      flag = true
+    }
+  })
+  return flag
+}
+
+
+/**
+ * 点所在省
+ */
+Province.getPointInProvinces = function (point) {
+  var resP
+  Province.list.forEach(function (p) {
+    p.plys.forEach(function (ply) {
+      if (ply.containPoint(point)) {
+        resP = p
+      }
+    })
+
+  })
+  return resP
 }
 
 //渲染-----------------------------------------------------------------------
@@ -177,7 +212,9 @@ function renderProvince() {
       strokeColor: '#9e9a9a',
       fillColor: provinceBaidu.fillColor,
       fillOpacity: 0.3,
-      strokeOpacity: 0.1
+      strokeOpacity: 0.1,
+      viewZ: provinceBaidu.viewZ,
+      viewCenter: provinceBaidu.viewCenter
     })
     province.getBoundary()
 
@@ -198,11 +235,38 @@ function renderCity() {
   }
 }
 
+
 renderProvince()
-// renderCity()
+renderCity()
 
 
 map.addEventListener('touchend', function (e) {
-  console.log(e)
   e.domEvent.srcElement.click()
+  var p = Province.getPointInProvinces(e.point)
+  if (!!p) {
+    // map.setViewport(p.plys[0].getPath());
+    map.centerAndZoom(p.viewCenter || p.name, p.viewZ)
+
+
+    City.list.forEach(function(c){
+      c.clearMarker()
+    })
+    City.list.forEach(function (c) {
+      if (!!p.getPointInProvinces(new BMap.Point(c.x, c.y))) {
+        c.addMarker()
+      }
+    })
+  }
 })
+
+/**
+ * 返回按钮绑定事件
+ */
+function back() {
+  map.centerAndZoom('北京', 6)
+  City.list.forEach(function(c){
+      c.addMarker()
+    })
+}
+
+$('.back-btn').on('click', back)
