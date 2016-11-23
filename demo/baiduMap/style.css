@@ -1,4 +1,52 @@
 .back-btn {
+  font-size: 14px;
+  color: #fff;
+  height: 100%;
+  width:20%;
+  background-color: #1e90ff;
+  border:none;
+  float: left;
+}
+
+.back-btn:active{
+  background-color:#46a3fe;
+}
+.province-name{
+  font-size: 14px;
+  width:80%;
+  height: 100%;
+  background-color:#f1f1f1;
+  text-align: center;
+  display: block;
+  float: left;
+  line-height: 40px;
+}
+
+.bar {
+  position: fixed;
+  bottom: 0;
+  height: 40px;
+  width:100%;
+  border-top:1px solid #1579da;
+}
+
+.mask {
+  height: 100%;
+  width: 100%;
   position: absolute;
-  top:0;
+  top: 0;
+  background-color: #fff;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.mask-show {
+  display: block;
+  opacity: 1;
+}
+
+.mask-hide {
+  display: block;
+  opacity: 0;
 }
