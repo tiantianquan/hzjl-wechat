@@ -63,6 +63,11 @@ Province.prototype.registEvent = function (overlay) {
  * 省市名称水印
  */
 Province.prototype.addName = function () {
+  if(!!this.nameLabel){
+    this.nameLabel.show()
+    return
+  }
+
   var opts = {
     position: new BMap.Point(this.x, this.y), // 指定文本标注所在的地理位置
     offset: new BMap.Size(-15, -15) //设置文本偏移量
@@ -94,9 +99,11 @@ Province.prototype.getPointInProvinces = function (point) {
 
 Province.prototype.clearOverlay = function () {
   this.plys.forEach(function (p) {
-    map.removeOverlay(p)
+    // map.removeOverlay(p)
+    p.hide()
   })
-  map.removeOverlay(this.nameLabel)
+  // map.removeOverlay(this.nameLabel)
+  this.nameLabel.hide()
 }
 
 Province.prototype.addPly = function () {
@@ -109,7 +116,8 @@ Province.prototype.addPly = function () {
     })
   } else {
     this.plys.forEach(function (ply) {
-      map.addOverlay(ply)
+      // map.addOverlay(ply)
+      ply.show()
     })
   }
 }

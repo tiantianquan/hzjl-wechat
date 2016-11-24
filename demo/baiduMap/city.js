@@ -34,6 +34,11 @@ City.list = []
  * 添加标记
  */
 City.prototype.addMarker = function () {
+  if (!!this.marker) {
+    this.marker.show()
+    return
+  }
+
   var point = new BMap.Point(this.x, this.y)
   var marker = new BMap.Marker(point)
 
@@ -60,7 +65,10 @@ City.prototype.addMarker = function () {
 }
 
 City.prototype.clearMarker = function () {
-  map.removeOverlay(this.marker)
+  // map.removeOverlay(this.marker)
+  if (!!this.marker) {
+    this.marker.hide()
+  }
 }
 
 
