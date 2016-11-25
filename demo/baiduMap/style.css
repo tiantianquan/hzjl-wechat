@@ -1,52 +1,262 @@
-.back-btn {
-  font-size: 14px;
-  color: #fff;
-  height: 100%;
-  width:20%;
-  background-color: #1e90ff;
-  border:none;
-  float: left;
+ body,
+ html {
+   width: 100%;
+   height: 100%;
+   margin: 0;
+   font-family: "微软雅黑";
+ }
+ 
+ #allmap {
+   width: 100%;
+   height: 100%;
+ }
+ 
+ p {
+   margin-left: 5px;
+   font-size: 14px;
+ }
+ 
+ .back-btn {
+   font-size: 14px;
+   color: #fff;
+   height: 100%;
+   width: 20%;
+   background-color: #1e90ff;
+   border: none;
+   float: left;
+ }
+ 
+ .back-btn:active {
+   background-color: #46a3fe;
+ }
+ 
+ .province-name {
+   font-size: 14px;
+   width: 80%;
+   height: 100%;
+   background-color: #f1f1f1;
+   text-align: center;
+   display: block;
+   float: left;
+   line-height: 40px;
+ }
+ 
+ .bar {
+   position: fixed;
+   bottom: 0;
+   height: 40px;
+   width: 100%;
+   border-top: 1px solid #1579da;
+ }
+ 
+ .mask {
+   height: 100%;
+   width: 100%;
+   position: absolute;
+   top: 0;
+   background-color: #fff;
+   display: none;
+   opacity: 0;
+   transition: opacity 0.5s;
+ }
+ 
+ .mask-show {
+   display: block;
+   opacity: 1;
+ }
+ 
+ .mask-hide {
+   display: block;
+   opacity: 0;
+ }
+ 
+ .project-wrapper {
+   display: none;
+ }
+ 
+ .project-list {
+   /*display: none;*/
+   margin: 0;
+   padding: 0;
+   min-height: 100%;
+   width: 100%;
+   position: absolute;
+   top: 0;
+   background-color: #fff;
+   z-index: 100;
+ }
+ 
+ .project-item {
+   height: 50px;
+   line-height: 50px;
+   border-bottom: 1px solid #000;
+ }
+ 
+ .project-wrapper .bar {
+   z-index: 100;
+ }
+
+ .project-list .no-content{
+   display: block;
+   width:100%;
+   text-align: center;
+   margin-top: 200px;
+   font-size: 20px;
+   color: #c1c1c1;
+ }
+ 
+ .close-btn {
+   width: 100%;
+   font-size: 14px;
+   color: #fff;
+   height: 100%;
+   background-color: #1e90ff;
+   border: none;
+   float: left;
+ }
+ 
+ .main-list-item {
+   display: block;
+   padding: 15px 15px 10px 10px;
+   overflow: hidden;
+   position: relative;
+   text-decoration: none;
+   -webkit-tap-highlight-color: rgba(255, 255, 255, 0.8);
+   /*margin-top:2px;*/
+   /*margin-bottom: 2px;*/
+ }
+ 
+ .main-list-item .title {
+   font-weight: 400;
+   font-size: 16px;
+   color: #000;
+   width: 100%;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   word-wrap: normal;
+   margin: 0;
+   line-height: 1.5;
+ }
+ 
+ .main-list-item .desc {
+   font-size: 12px;
+   color: #999;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 2;
+   line-height: 1.3;
+   margin: 0;
+ }
+ /*loading*/
+ @font-face {
+   font-family: anticon;
+   src: url('//at.alicdn.com/t/font_1457169990_5499172.eot');
+   src: url('//at.alicdn.com/t/font_1457169990_5499172.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_1457169990_5499172.woff') format('woff'), url('//at.alicdn.com/t/font_1457169990_5499172.ttf') format('truetype'), url('//at.alicdn.com/t/font_1457169990_5499172.svg#iconfont') format('svg')
+ }
+ 
+ .icons .anticon {
+   font-size: 26px;
+   margin: 12px 0 16px;
+ }
+ 
+ .anticon {
+   display: inline-block;
+   font-style: normal;
+   vertical-align: baseline;
+   text-align: center;
+   text-transform: none;
+   text-rendering: auto;
+   line-height: 1;
+   text-rendering: optimizeLegibility;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+ }
+ 
+ .anticon {
+   display: inline-block;
+   font-style: normal;
+   vertical-align: baseline;
+   text-align: center;
+   text-transform: none;
+   text-rendering: auto;
+   line-height: 1;
+ }
+ 
+ *,
+ :after,
+ :before {
+   box-sizing: border-box;
+ }
+ 
+ .anticon-loading:before {
+   display: inline-block;
+   -webkit-animation: loadingCircle 1s infinite linear;
+   animation: loadingCircle 1s infinite linear;
+   content: "\E6A1";
+ }
+ 
+ .anticon:before {
+   display: block;
+   font-family: anticon!important;
+ }
+ 
+ .anticon-loading:before {
+   display: inline-block;
+   -webkit-animation: loadingCircle 1s infinite linear;
+   animation: loadingCircle 1s infinite linear;
+   content: "\E6A1";
+ }
+ 
+ .anticon:before {
+   display: block;
+   font-family: anticon!important;
+ }
+
+ @-webkit-keyframes loadingCircle {
+    0% {
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+
+    to {
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn)
+    }
 }
 
-.back-btn:active{
-  background-color:#46a3fe;
-}
-.province-name{
-  font-size: 14px;
-  width:80%;
-  height: 100%;
-  background-color:#f1f1f1;
-  text-align: center;
-  display: block;
-  float: left;
-  line-height: 40px;
+@keyframes loadingCircle {
+    0% {
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+
+    to {
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn)
+    }
 }
 
-.bar {
-  position: fixed;
-  bottom: 0;
-  height: 40px;
-  width:100%;
-  border-top:1px solid #1579da;
-}
 
-.mask {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  background-color: #fff;
+.project-loading {
   display: none;
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-
-.mask-show {
-  display: block;
-  opacity: 1;
-}
-
-.mask-hide {
-  display: block;
-  opacity: 0;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  width:50px;
+  height: 50px;
+  color:#1e90ff;
+  font-size: 50px;
+  z-index: 100;
 }

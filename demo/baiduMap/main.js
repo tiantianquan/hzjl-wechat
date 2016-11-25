@@ -72,3 +72,8 @@ map.addEventListener('touchend', function (e) {
  * 绑定返回按钮事件
  */
 $('.back-btn').on('click', back)
+
+/**
+ * 关闭列表
+ */
+$('.close-btn').on('click', Project.hideList)

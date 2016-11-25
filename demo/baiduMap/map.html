@@ -2,40 +2,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <!--<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">-->
-    <meta name="viewport" content="initial-scale=1.0,width=device-width">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="./style.css">
-    <title></title>
-    <style type="text/css">
-        body,
-        html {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            font-family: "微软雅黑";
-        }
-        
-        #allmap {
-            width: 100%;
-            height: 100%;
-        }
-        
-        p {
-            margin-left: 5px;
-            font-size: 14px;
-        }
-    </style>
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5nAtRFzGP3UADwznmh6eqDkmK84GzEmi"></script>
+  <!--<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">-->
+  <meta name="viewport" content="initial-scale=1.0,width=device-width">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="./style.css">
+  <title></title>
+  <style type="text/css">
+
+  </style>
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5nAtRFzGP3UADwznmh6eqDkmK84GzEmi"></script>
 </head>
 
 <body>
-    <div id="allmap"></div>
-    <div class="bar">
-        <button type="button" class="back-btn">返回</button>
-        <span class="province-name">内蒙古</span>
+  <div id="allmap"></div>
+  <div class="mask"></div>
+  <div class="project-wrapper">
+    <div class="project-list">
+
     </div>
-    <div class="mask"></div>
+    <div class="project-loading">
+      <i class="anticon anticon-loading"></i>
+    </div>
+    <div class="bar">
+      <button type="button" class="close-btn">关闭</button>
+    </div>
+  </div>
+  <div class="bar">
+    <button type="button" class="back-btn">返回</button>
+    <span class="province-name"></span>
+  </div>
 </body>
 <!--<script src="./baiduMapFix.js"></script>-->
 <script src="./zepto.min.js"></script>
@@ -44,6 +39,7 @@
 <script src="./util.js"></script>
 <script src="./city.js"></script>
 <script src="./province.js"></script>
+<script src="./project.js"></script>
 <script src="./main.js"></script>
 
 </html>

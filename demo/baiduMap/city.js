@@ -57,11 +57,10 @@ City.prototype.addMarker = function () {
     border: null
   })
   marker.setLabel(label)
-  marker.addEventListener('click', function () {
-    // alert(1)
-  })
+
   map.addOverlay(marker)
   this.marker = marker
+  this.registMarkerClick()
 }
 
 City.prototype.clearMarker = function () {
@@ -69,6 +68,20 @@ City.prototype.clearMarker = function () {
   if (!!this.marker) {
     this.marker.hide()
   }
+}
+
+City.prototype.registMarkerClick = function () {
+  var that = this
+  this.marker.addEventListener('click', function () {
+    console.log(1)
+    Project.removeDom()
+    Project.showList()
+    Project.showLoading()
+    Project.getAll(that.name, function (d) {
+      Project.ctrlDom(d)
+      Project.hideLoading()
+    })
+  })
 }
 
 

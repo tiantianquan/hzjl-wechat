@@ -72,3 +72,5 @@ function clearOverlay() {
   City.clearMarker()
   Province.clearOverlay()
 }
+
+
