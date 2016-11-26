@@ -1,5 +1,5 @@
 import React from 'react'
-import {  WingBlank, Flex } from 'antd-mobile'
+import { WingBlank, Flex } from 'antd-mobile'
 import CategoryGridItem from './categoryGridItem.jsx'
 
 const CategoryGrid = React.createClass({
@@ -7,30 +7,23 @@ const CategoryGrid = React.createClass({
     return (
       <div className="flex-container">
         <WingBlank size="lg">
-          <Flex>
-            <Flex.Item>
-              <CategoryGridItem />
-            </Flex.Item>
-            <Flex.Item>
-              <CategoryGridItem />
-            </Flex.Item>
-            <Flex.Item>
-              <CategoryGridItem />
-            </Flex.Item>
-            <Flex.Item>
-              <CategoryGridItem />
-            </Flex.Item>
-            <Flex.Item>
-              <CategoryGridItem />
-            </Flex.Item>
-            <Flex.Item>
-              <CategoryGridItem />
-            </Flex.Item>
-          </Flex>
+          {this.props.children}
         </WingBlank>
       </div>
     )
-  },
+  }
 })
+
+CategoryGrid.Row = React.createClass({
+  render() {
+    return (
+      <Flex>
+        {this.props.children}
+      </Flex>
+    )
+  }
+})
+
+CategoryGrid.Item = CategoryGridItem
 
 export default CategoryGrid

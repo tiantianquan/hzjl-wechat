@@ -11,7 +11,7 @@ class Api {
   static url = '/getDefaultData'
 
   static async getAllData() {
-    await timeout(5000)
+    await timeout(1000)
     return egData
   }
 }

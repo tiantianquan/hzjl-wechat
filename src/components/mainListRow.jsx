@@ -8,6 +8,7 @@ const MainListRow = ({obj, rowID}) => (
         display: 'block',
         minWidth: '80px',
         height: '60px',
+        // height: '60px',
       }} src={obj.img} />
       <div style={{ display: 'inline-block', overflow: 'hidden' }}>
         <h2 className={'title'}>{obj.title}</h2>

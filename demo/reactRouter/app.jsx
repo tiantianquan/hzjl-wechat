@@ -3,7 +3,6 @@ import { render } from 'react-dom'
 
 const mountNode = document.querySelector("#app")
 
-import { Drawer, List, NavBar } from 'antd-mobile'
 import 'antd-mobile/dist/antd-mobile.css'
 
 import { Router, Route, IndexRoute, Link, IndexLink, browserHistory } from 'react-router'

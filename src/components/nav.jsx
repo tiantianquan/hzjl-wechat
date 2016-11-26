@@ -7,7 +7,7 @@ const Nav = React.createClass({
       <NavBar
         // leftContent="返回" 
         mode="dark"
-        // onLeftClick={() => console.log('onLeftClick')}
+        onLeftClick={() => this.props.goBack()}
         >环渤海</NavBar>
     )
   }

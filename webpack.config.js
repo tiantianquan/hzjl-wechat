@@ -47,12 +47,14 @@ module.exports = {
 		`webpack-dev-server/client?http://${HOST}:${PORT}`,
 		`webpack/hot/only-dev-server`,
 		`./src/app.jsx`,
-		`./demo/reactRouter/app.jsx` // Your appʼs entry point
+		// `./demo/reactRouter/app.jsx` // Your appʼs entry point
 	],
 	// devtool: process.env.WEBPACK_DEVTOOL || 'cheap-module-source-map',
 	devtool: process.env.WEBPACK_DEVTOOL || 'inline-source-map',
 	output: {
 		path: path.join(__dirname, 'public'),
+		//修复historyApiFallback url嵌套无用的问题
+		publicPath:'/',
 		filename: 'bundle.js'
 	},
 	resolve: {
@@ -63,6 +65,7 @@ module.exports = {
 		loaders
 	},
 	devServer: {
+
 		contentBase: "./public",
 		// do not print bundle build stats
 		noInfo: true,

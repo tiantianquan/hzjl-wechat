@@ -14,40 +14,57 @@ import actions from '../actions'
 // import 'antd-mobile/dist/antd-mobile.css'
 import '../style.css'
 
-const CONFIG={
+const CONFIG = {
   /**
    * 每页条数
    */
-  perPage:10
+  perPage: 10
 }
 
 
 const MainView = React.createClass({
-  _starter(){
+  _getArticleByCategoryName(categoryName) {
+    console.log(categoryName)
     this.props.actions.getArticleListStart(1, CONFIG.perPage)
   },
-
   componentWillMount() {
-    this._starter()   
+    this._getArticleByCategoryName(this.props.categoryName)
   },
-
+  componentWillReceiveProps(nextProps) {
+    if (this.props.categoryName !== nextProps.categoryName) {
+      this._getArticleByCategoryName(nextProps.categoryName)
+    }
+  },
   render() {
     const {isLoading, articleList} = this.props
     return (
       <div>
-        <Nav />
-        <CategoryGrid />
+        <Nav goBack={this.props.router.goBack} />
+        <CategoryGrid>
+          <CategoryGrid.Row>
+            <CategoryGrid.Item name={'市长联席会'} path={'/category/mayor'} />
+            <CategoryGrid.Item name={'区域合作'} path={'/category/cooperation'} />
+            <CategoryGrid.Item name={'经济产业'} path={'/category/economy'} />
+          </CategoryGrid.Row>
+          <CategoryGrid.Row>
+            <CategoryGrid.Item name={'科技人才'} path={'/category/technology'} />
+            <CategoryGrid.Item name={'展会推广'} path={'/category/exhibition'} />
+            <CategoryGrid.Item name={'重要会议'} path={'/category/meeting'} />
+          </CategoryGrid.Row>
+        </CategoryGrid>
         <MySearchBar />
         <MainList articleList={articleList} isLoading={isLoading} />
-        {!isLoading ? <PageNum /> : null}
-
+        {/*!isLoading ? <PageNum /> : null*/}
       </div>
     )
   }
 })
 
-function mapStateToProps(state) {
-  return state
+function mapStateToProps(state, ownProps) {
+  return {
+    ...state.rootReducer,
+    categoryName: ownProps.params.categoryName
+  }
 }
 
 function mapDispatchToProps(dispatch) {
