@@ -46,7 +46,8 @@ module.exports = {
 	entry: [
 		`webpack-dev-server/client?http://${HOST}:${PORT}`,
 		`webpack/hot/only-dev-server`,
-		`./src/app.jsx` // Your appʼs entry point
+		`./src/app.jsx`,
+		`./demo/reactRouter/app.jsx` // Your appʼs entry point
 	],
 	// devtool: process.env.WEBPACK_DEVTOOL || 'cheap-module-source-map',
 	devtool: process.env.WEBPACK_DEVTOOL || 'inline-source-map',
