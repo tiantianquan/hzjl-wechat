@@ -9,17 +9,21 @@ url : "http://mp.weixin.qq.com/s?
  */
 
 // var url = 'http://localhost:19581/media/GetNewsbycity?cityName='
-var url = 'http://www.reegle.cn/media/GetNewsByCity?cityName='
+var url = 'http://www.reegle.cn/media/GetNewsByCategory?category='
+// var url = 'http://localhost:9999/News/GetNewsByCity?cityName='
 
 var formatData = function (res) {
+  res = JSON.parse(res)
   var data = []
   res.forEach(function (d) {
-    item = d.content.news_item[0]
+    console.log(d.update_time)
+    item = d
     data.push({
       url: item.url,
       title: item.title,
       digest: item.digest,
-      thumb_url: item.thumb_url
+      thumb_url: item.thumb_url,
+      update_time:new Date(item.update_time)
     })
   })
 
@@ -61,7 +65,8 @@ Project.ctrlDom = function (data) {
       " src=${imageUrl} />
       <div style="display: inline-block; overflow: hidden ">
         <h2 class="title">${item.title}</h2>
-        <p class="desc" style="margin: 5px 0 5px 0">2016年11月1日</p>
+        <p class="desc" style="margin: 5px 0 5px 0">${item.update_time.getFullYear()+'年'+
+     (item.update_time.getMonth()+1)+'月'+item.update_time.getDate()+'日'}</p>
         <p class="desc">${item.digest}</p>
       </div>
     </div>

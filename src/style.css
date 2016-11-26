@@ -81,3 +81,7 @@ a:-webkit-any-link {
 .grid-item-active{
   color:#108ee9
 }
+
+*{
+  font-family:"微软雅黑",sans-serif;
+}

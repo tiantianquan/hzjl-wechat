@@ -1,10 +1,10 @@
 import actionType from './atcionType'
 import Api from '../api'
 
-function getArticleListStart(page, per_page) {
+function getArticleListStart(category) {
   return async function (dispatch) {
     dispatch(getArticleListLoading())
-    let data = await Api.getAllData(page, per_page)
+    let data = await Api.getNewsByCategory(category)
     dispatch(getArticleListEnd(data))
   }
 }

@@ -25,7 +25,7 @@ const CONFIG = {
 const MainView = React.createClass({
   _getArticleByCategoryName(categoryName) {
     console.log(categoryName)
-    this.props.actions.getArticleListStart(1, CONFIG.perPage)
+    this.props.actions.getArticleListStart(categoryName) 
   },
   componentWillMount() {
     this._getArticleByCategoryName(this.props.categoryName)
