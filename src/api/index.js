@@ -9,7 +9,7 @@ import egData from './egData'
 
 class Api {
   static url = '/getDefaultData'
-  static urlPrex = 'http://www.reegle.cn/news/GetNewsByCategory?category='
+  static urlPrex = 'http://www.reegle.cn/api/news/GetNewsByCategory?category='
 
   static async getAllData() {
     await timeout(1000)

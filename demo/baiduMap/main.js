@@ -64,8 +64,14 @@ Province.addOverlay()
 initBar()
 
 map.addEventListener('touchend', function (e) {
-  e.domEvent.srcElement.click()
-  zoomProvince(e.point)
+  // e.domEvent.srcElement.click()
+  console.log(e)
+  if (!!e.overlay&&!!e.overlay.touch) {
+    e.overlay.touch()
+  } else {
+    zoomProvince(e.point)
+  }
+  return
 })
 
 /**
