@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 
 import MainView from './containers/mainView.jsx'
+import CityView from './containers/cityView.jsx'
 import rootReducer from './reducers'
 
 import { Router, Route, IndexRoute, Link, IndexLink, browserHistory } from 'react-router'
@@ -34,7 +35,19 @@ const routeConfig = [
         path: 'category/:categoryName',
         component: MainView
       },
+
     ]
+  }, {
+    path: '/city',
+    component: CityView,
+    indexRoute: { component: CityView },
+    childRoutes: [
+      {
+        path: 'category/:categoryName',
+        component: CityView
+      }
+    ]
+
   }
 ]
 

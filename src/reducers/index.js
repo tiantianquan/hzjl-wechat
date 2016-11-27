@@ -16,6 +16,7 @@ function reducer(state = initialState, action) {
       }
     case actionType.GET_ARTICLE_LIST_END:
       return {
+        ...state,
         articleList: action.data,
         isLoading: action.isLoading
       }

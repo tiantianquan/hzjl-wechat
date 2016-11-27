@@ -1,7 +1,7 @@
 import React from 'react'
 
 const MainListRow = ({obj, rowID}) => (
-  <a href={obj.href} className={'main-list-item'} >
+  <a href={obj.url} className={'main-list-item'} >
     <div style={{ display: '-webkit-box', display: 'flex' }}>
       <img style={{
         marginRight: '10px',
