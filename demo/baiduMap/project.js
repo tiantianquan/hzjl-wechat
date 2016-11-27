@@ -9,7 +9,7 @@ url : "http://mp.weixin.qq.com/s?
  */
 
 // var url = 'http://localhost:19581/media/GetNewsbycity?cityName='
-var url = 'http://www.reegle.cn/media/GetNewsByCategory?category='
+var url = 'http://www.reegle.cn/news/GetNewsByCategory?category='
 // var url = 'http://localhost:9999/News/GetNewsByCity?cityName='
 
 var formatData = function (res) {

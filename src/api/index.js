@@ -20,7 +20,7 @@ class Api {
     var res = await axios.get(this.urlPrex + category)
     res.data.forEach(i => {
       i.update_time = new Date(i.update_time)
-      i.thumbl_url = '/Lighthouse.jpg'
+      i.thumbl_url = '/public/Lighthouse.jpg'
     })
 
     return res.data
