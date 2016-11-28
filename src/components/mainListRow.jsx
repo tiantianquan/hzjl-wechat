@@ -3,13 +3,7 @@ import React from 'react'
 const MainListRow = ({obj, rowID}) => (
   <a href={obj.url} className={'main-list-item'} >
     <div style={{ display: '-webkit-box', display: 'flex' }}>
-      <img style={{
-        marginRight: '10px',
-        display: 'block',
-        minWidth: '80px',
-        height: '60px',
-        // height: '60px',
-      }} src={obj.thumbl_url} />
+      <img className={'item-img'} src={obj.thumb_url} />
       <div style={{ display: 'inline-block', overflow: 'hidden' }}>
         <h2 className={'title'}>{obj.title}</h2>
         <p className={'desc'} style={{ margin: '5px 0 5px 0' }}>{obj.update_time.getFullYear()+'年'+

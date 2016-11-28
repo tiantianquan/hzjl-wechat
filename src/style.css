@@ -78,10 +78,19 @@ a:-webkit-any-link {
   text-decoration: none;
 }
 
-.grid-item-active{
-  color:#108ee9
+.grid-item-active {
+  color: #108ee9
 }
 
-*{
-  font-family:"微软雅黑",sans-serif;
+* {
+  font-family: "微软雅黑", sans-serif;
+}
+
+.item-img {
+  margin-right: 10px;
+  display: block;
+  min-width: 200px;
+ max-width: 200px;
+ /*width:200px;*/
+  height: 160px;
 }
