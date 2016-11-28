@@ -39,7 +39,7 @@ const MainView = React.createClass({
     const {isLoading, articleList} = this.props
     return (
       <div>
-        <Nav goBack={this.props.router.goBack} />
+        <Nav title="环渤海" goBack={this.props.router.goBack} />
         <CategoryGrid>
           <CategoryGrid.Row>
             <CategoryGrid.Item name={'市长联席会'} path={'/category/mayor'} />

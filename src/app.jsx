@@ -6,6 +6,7 @@ import thunk from 'redux-thunk'
 
 import MainView from './containers/mainView.jsx'
 import CityView from './containers/cityView.jsx'
+import HzjlView from './containers/hzjlView.jsx'
 import rootReducer from './reducers'
 
 import { Router, Route, IndexRoute, Link, IndexLink, browserHistory } from 'react-router'
@@ -35,8 +36,10 @@ const routeConfig = [
         path: 'category/:categoryName',
         component: MainView
       },
-
-    ]
+    ],
+    onEnter: function () {
+      document.getElementsByTagName('title')[0].innerText = '环渤海'
+    }
   }, {
     path: '/city',
     component: CityView,
@@ -46,8 +49,24 @@ const routeConfig = [
         path: 'category/:categoryName',
         component: CityView
       }
-    ]
-
+    ],
+    onEnter: function () {
+      document.getElementsByTagName('title')[0].innerText = '环渤海'
+    }
+  },
+  {
+    path: '/hzjl',
+    component: HzjlView,
+    indexRoute: { component: HzjlView },
+    childRoutes: [
+      {
+        path: 'category/:categoryName',
+        component: HzjlView
+      }
+    ],
+    onEnter: function () {
+      document.getElementsByTagName('title')[0].innerText = '天津合作交流'
+    }
   }
 ]
 

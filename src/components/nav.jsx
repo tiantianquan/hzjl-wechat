@@ -8,7 +8,7 @@ const Nav = React.createClass({
         // leftContent="返回" 
         mode="dark"
         onLeftClick={() => this.props.goBack()}
-        >环渤海</NavBar>
+        >{this.props.title}</NavBar>
     )
   }
 })
