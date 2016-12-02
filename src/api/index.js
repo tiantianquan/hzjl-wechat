@@ -8,7 +8,7 @@ import egData from './egData'
 
 
 class Api {
-  static url = '/getDefaultData'
+  // static url = '/getDefaultData'
   // static urlPrex = 'http://localhost:9999/'
   // static urlPrex = 'http://www.reegle.cn/'
    static urlPrex = '/'
@@ -36,8 +36,6 @@ class Api {
     var res = await axios.get(this.urlPrex +url+ searchText)
     res.data.forEach(i => {
       i.update_time = new Date(i.update_time)
-      // if(i.thumb_url[0] !== '/')
-      // i.thumb_url = '/image/Lighthouse.jpg'
     })
 
     return res.data

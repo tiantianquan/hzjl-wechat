@@ -5,12 +5,10 @@ import { connect } from 'react-redux'
 
 import MainList from '../components/mainList.jsx'
 import MySearchBar from '../components/searchBar.jsx'
-import CategoryGrid from '../components/categoryGrid.jsx'
 import Nav from '../components/nav.jsx'
 
 import actions from '../actions'
 
-// import 'antd-mobile/dist/antd-mobile.css'
 import '../style.css'
 
 const HzjlView = React.createClass({
@@ -29,26 +27,9 @@ const HzjlView = React.createClass({
     const {isLoading, articleList} = this.props
     return (
       <div>
-        <Nav title="天津市交流合作" goBack={this.props.router.goBack} />
-        <CategoryGrid>
-          <CategoryGrid.Row>
-            <CategoryGrid.Item name={'重点工作'} path={'/hzjl/category/重点工作'} />
-            <CategoryGrid.Item name={'工作规划'} path={'/hzjl/category/工作规划'} />
-            <CategoryGrid.Item name={'招商动态'} path={'/hzjl/category/招商动态'} />
-          </CategoryGrid.Row>
-          <CategoryGrid.Row>
-            <CategoryGrid.Item name={'招商政策'} path={'/hzjl/category/招商政策'} />
-            <CategoryGrid.Item name={'招商项目'} path={'/hzjl/category/招商项目'} />
-            <CategoryGrid.Item name={'协同发展'} path={'/hzjl/category/京津冀协同发展'} />
-          </CategoryGrid.Row>
-          <CategoryGrid.Row>
-
-            <CategoryGrid.Item name={'环渤海城市群'} path={'/hzjl/category/环渤海城市群'} />
-            <CategoryGrid.Item name={'两外机构'} path={'/hzjl/category/两外机构'} />
-            <CategoryGrid.Item name={'对口帮扶'} path={'/hzjl/category/对口帮扶'} />
-          </CategoryGrid.Row>
-        </CategoryGrid>
-        <MySearchBar />
+        <Nav title="天津市合作交流" goBack={this.props.router.goBack} />
+          {this.props.renderCategory()} 
+        <MySearchBar getSearchListStart={this.props.actions.getSearchListStart}/>
         <MainList articleList={articleList} isLoading={isLoading} />
         {/*!isLoading ? <PageNum /> : null*/}
       </div>
