@@ -11,7 +11,9 @@ class Api {
   // static url = '/getDefaultData'
   // static urlPrex = 'http://localhost:9999/'
   // static urlPrex = 'http://www.reegle.cn/'
-   static urlPrex = '/'
+  //  static urlPrex = '/'
+    static urlPrex = 'http://wx.jjhz-tj.gov.cn/'
+
 
   static async getAllData() {
     await timeout(1000)

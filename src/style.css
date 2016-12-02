@@ -88,13 +88,18 @@ a:-webkit-any-link {
 
 .item-img {
   position: absolute;
-  top:50%;
+  /*top:50%;
   left:50%;
   -webkit-transform: translate(-50%,-50%);
   -ms-transform: translate(-50%,-50%);
   -o-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-
+  transform: translate(-50%,-50%);*/
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   display: block;
   /*min-width: 200px;*/
   max-width: 200px;
@@ -106,8 +111,12 @@ a:-webkit-any-link {
 .img-wrapper {
   position: relative;
   margin-right: 10px;
+  width: 600px;
+  -webkit-flex: 2;
+  -moz-flex: 2;
+  -ms-flex: 2;
+  -o-flex: 2;
   flex: 2;
-  width:600px;
   /*width:500px !important;*/
   /*height: 160px !important;*/
 }
@@ -115,9 +124,20 @@ a:-webkit-any-link {
 .item-des {
   display: inline-block;
   overflow: hidden;
+  -webkit-flex: 5;
+  -moz-flex: 5;
+  -ms-flex: 5;
+  -o-flex: 5;
   flex: 5;
 }
 
 .nav-title {
   font-size: 28px
+}
+
+.row-wrapper {
+  display: -webkit-box;
+  display: flex;
+  display: -webkit-flex;
+  /*display:inline-flex;*/
 }

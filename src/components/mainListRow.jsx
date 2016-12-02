@@ -18,7 +18,7 @@ const MainListRow = React.createClass({
     var {obj, _rowId} = this.props
     return (
       <a href={obj.url} className={'main-list-item'} >
-        <div style={{ display: '-webkit-box', display: 'flex' }}>
+        <div className={"row-wrapper"}>
           {this._renderImg()}
           <div className={'item-des'}>
             <h2 className={'title'}>{obj.title}</h2>
