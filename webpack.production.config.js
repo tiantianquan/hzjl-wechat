@@ -61,7 +61,7 @@ module.exports = {
 		}),
 		new HtmlWebpackPlugin({
 			template: './src/template.html',
-			title: '环渤海'
+			title: ''
 		}),
 		new webpack.optimize.DedupePlugin()
 	]

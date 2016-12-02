@@ -7,6 +7,9 @@ import thunk from 'redux-thunk'
 import MainView from './containers/mainView.jsx'
 import CityView from './containers/cityView.jsx'
 import HzjlView from './containers/hzjlView.jsx'
+import HzjlView1 from './containers/hzjlView1.jsx'
+import HzjlView2 from './containers/hzjlView2.jsx'
+import HzjlView3 from './containers/hzjlView3.jsx'
 import rootReducer from './reducers'
 
 import { Router, Route, IndexRoute, Link, IndexLink, browserHistory } from 'react-router'
@@ -65,7 +68,49 @@ const routeConfig = [
       }
     ],
     onEnter: function () {
-      document.getElementsByTagName('title')[0].innerText = '天津合作交流'
+      document.getElementsByTagName('title')[0].innerText = '天津市合作交流'
+    }
+  },
+  {
+    path: '/hzjl1',
+    component: HzjlView1,
+    indexRoute: { component: HzjlView1 },
+    childRoutes: [
+      {
+        path: 'category/:categoryName',
+        component: HzjlView1
+      }
+    ],
+    onEnter: function () {
+      document.getElementsByTagName('title')[0].innerText = '天津市合作交流'
+    }
+  },
+  {
+    path: '/hzjl2',
+    component: HzjlView2,
+    indexRoute: { component: HzjlView2 },
+    childRoutes: [
+      {
+        path: 'category/:categoryName',
+        component: HzjlView2
+      }
+    ],
+    onEnter: function () {
+      document.getElementsByTagName('title')[0].innerText = '天津市合作交流'
+    }
+  },
+   {
+    path: '/hzjl3',
+    component: HzjlView3,
+    indexRoute: { component: HzjlView3 },
+    childRoutes: [
+      {
+        path: 'category/:categoryName',
+        component: HzjlView3
+      }
+    ],
+    onEnter: function () {
+      document.getElementsByTagName('title')[0].innerText = '天津市合作交流'
     }
   }
 ]

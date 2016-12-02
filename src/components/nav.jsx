@@ -4,11 +4,11 @@ import { NavBar } from 'antd-mobile'
 const Nav = React.createClass({
   render() {
     return (
-      <NavBar
+      <NavBar 
         // leftContent="返回" 
         mode="dark"
         onLeftClick={() => this.props.goBack()}
-        >{this.props.title}</NavBar>
+        ><span className="nav-title">{this.props.title}</span></NavBar>
     )
   }
 })

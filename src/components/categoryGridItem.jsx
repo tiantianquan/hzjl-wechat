@@ -8,9 +8,9 @@ const CategoryGridItem = React.createClass({
       <Flex.Item>
         <Link style={{ display: 'block', textAlign: 'center' }}
           to={this.props.path} activeStyle={{color:'#108ee9'}}>
-          <WhiteSpace size="sm" />
+          <WhiteSpace size="lg" />
           <span>{this.props.name}</span>
-          <WhiteSpace size="sm" />
+          <WhiteSpace size="lg" />
         </Link>
       </Flex.Item >)
   }

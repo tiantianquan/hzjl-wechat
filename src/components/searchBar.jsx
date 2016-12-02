@@ -10,6 +10,9 @@ const MySearchBar = React.createClass({
   onChange(value) {
     this.setState({ searchText:value })
   },
+  onSubmit(value){
+    this.props.getSearchListStart(value)
+  },
   render() {
     return (
       <SearchBar
@@ -19,6 +22,7 @@ const MySearchBar = React.createClass({
         cancelText="取消"
         // showCancelButton
         onChange={this.onChange}
+        onSubmit={this.onSubmit}
         />
     )
   },

@@ -20,6 +20,17 @@ function reducer(state = initialState, action) {
         articleList: action.data,
         isLoading: action.isLoading
       }
+    case actionType.GET_SEARCH_LIST_LOADING:
+      return {
+        ...state,
+        isLoading: action.isLoading
+      }
+    case actionType.GET_SEARCH_LIST_END:
+      return {
+        ...state,
+        articleList: action.data,
+        isLoading: action.isLoading
+      }
     default:
       return state;
   }

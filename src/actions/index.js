@@ -13,7 +13,7 @@ function getArticleListStart(category) {
 function getArticleListLoading() {
   return {
     type: actionType.GET_ARTICLE_LIST_LOADING,
-    isLoading:true
+    isLoading: true
   }
 }
 
@@ -21,13 +21,43 @@ function getArticleListEnd(data) {
   return {
     type: actionType.GET_ARTICLE_LIST_END,
     data,
-    isLoading:false
+    isLoading: false
   }
 }
+
+function getSearchListStart(searchText) {
+  return async function (dispatch) {
+    dispatch(getSearchListLoading())
+    let data = await Api.getSearchByCategory(searchText)
+    dispatch(getSearchListEnd(data))
+  }
+}
+
+function getSearchListLoading() {
+  return {
+    type: actionType.GET_SEARCH_LIST_LOADING,
+    isLoading: true
+  }
+}
+
+function getSearchListEnd(data) {
+  return {
+    type: actionType.GET_SEARCH_LIST_END,
+    data,
+    isLoading: false
+  }
+}
+
+
 export default {
   getArticleListStart,
   getArticleListLoading,
-  getArticleListEnd
+  getArticleListEnd,
+  getSearchListStart,
+  getSearchListLoading,
+  getSearchListEnd
 }
 
-export {actionType}
+export {
+  actionType
+}
