@@ -16,9 +16,9 @@ const MainView = React.createClass({
     this.props.actions.getArticleListStart(categoryName)
   },
 
-  _getSearchListStart(searchText) {
+  _getSearchListStart() {
     var searchTag = this.props.searchTag
-    return () => {
+    return (searchText) => {
        this.props.actions.getSearchListStart(searchText,searchTag)
     }
   },
@@ -36,7 +36,7 @@ const MainView = React.createClass({
       <div>
         <Nav title={pageTitle} goBack={this.props.router.goBack} />
         {renderCategory()}
-        <MySearchBar getSearchListStart={this._getSearchListStart} />
+        <MySearchBar getSearchListStart={this._getSearchListStart()} />
         <MainList articleList={articleList} isLoading={isLoading} />
         {/*!isLoading ? <PageNum /> : null*/}
       </div>

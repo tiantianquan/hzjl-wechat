@@ -6,7 +6,7 @@ const MainListRow = React.createClass({
     if (!!obj.ThumbImgPath) {
       return (
         <div className={'img-wrapper'} style={{
-          backgroundImage:'url(/public'+obj.ThumbImgPath+')'
+          backgroundImage:'url(\'/public'+obj.ThumbImgPath+'\')'
         }}>
 
           {/*<img className={'item-img'} src={'/public' + obj.ThumbImgPath} />*/}

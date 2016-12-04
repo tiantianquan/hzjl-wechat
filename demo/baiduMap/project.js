@@ -10,7 +10,8 @@ url : "http://mp.weixin.qq.com/s?
 
 // var url = 'http://localhost:19581/media/GetNewsbycity?cityName='
 // var url = 'http://www.reegle.cn/api/news/GetNewsByCategory?category='
-var url = 'http://localhost:9999/api/News/GetNewsByCategory?category='
+// var url = 'http://localhost:9999/api/News/GetNewsByCategory?category='
+ var url = '/api/News/GetNewsByCategory?category='
 
 var formatData = function (res) {
   res = JSON.parse(res)
