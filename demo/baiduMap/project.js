@@ -48,7 +48,8 @@ Project.getAll = function (cityName, cb) {
 }
 
 Project.ctrlDom = function (data) {
-  var imageUrl = './Lighthouse.jpg'
+
+  var imageUrl = '/image/normal.jpg'
     //  <div className={'img-wrapper'} style={{
     //         backgroundImage:'url(/public'+obj.ThumbImgPath+')'
     //       }}>
@@ -78,8 +79,11 @@ Project.ctrlDom = function (data) {
     //     </div>
     //   </div>
     // </a>`
+    if(!item.thumbImgPath){
+      item.thumbImgPath=imageUrl
+    }
 
-  var templ = '\n      <a href=' + item.url + ' class="main-list-item" >\n      <div style="display: -webkit-box; display: -webkit-flex;display: flex">\n        <div style="\n          position: relative;\n    margin-right: 10px;\n    -webkit-flex:1;\n      flex:1;\n    overflow: hidden;\n    background-image:url(' + ('/public/' + item.thumbImgPath) + ');\n    background-repeat: no-repeat;\n    background-size: cover;\n    background-position: center,center;\n\n        "/>\n        <div style="-webkit-flex:2;flex:2; overflow: hidden ">\n          <h2 class="title">' + item.title + '</h2>\n          <p class="desc" style="margin: 5px 0 5px 0">' + (item.update_time.getFullYear() + '年' + (item.update_time.getMonth() + 1) + '月' + item.update_time.getDate() + '日') + '</p>\n          <p class="desc">' + item.digest + '</p>\n        </div>\n      </div>\n    </a>';
+  var templ = '\n      <a href=' + item.url + ' class="main-list-item" >\n      <div style="display: -webkit-box; display: -webkit-flex;display: flex">\n        <div style="\n          position: relative;\n    margin-right: 10px;\n    -webkit-flex:1;\n      flex:1;\n    overflow: hidden;\n    background-image:url(\'' + ('/public/' + item.thumbImgPath) + '\');\n    background-repeat: no-repeat;\n    background-size: cover;\n    background-position: center,center;\n\n        "/>\n        <div style="-webkit-flex:2;flex:2; overflow: hidden ">\n          <h2 class="title">' + item.title + '</h2>\n          <p class="desc" style="margin: 5px 0 5px 0">' + (item.update_time.getFullYear() + '年' + (item.update_time.getMonth() + 1) + '月' + item.update_time.getDate() + '日') + '</p>\n          <p class="desc">' + item.digest + '</p>\n        </div>\n      </div>\n    </a>';
 
     return templ
   }

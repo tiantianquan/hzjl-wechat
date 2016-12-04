@@ -72,6 +72,10 @@
  
  .project-wrapper {
    display: none;
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   top: 0;
  }
  
  .project-list {
@@ -84,6 +88,7 @@
    top: 0;
    background-color: #fff;
    z-index: 100;
+       padding-bottom: 60px;
  }
  
  .project-item {
@@ -95,10 +100,10 @@
  .project-wrapper .bar {
    z-index: 100;
  }
-
- .project-list .no-content{
+ 
+ .project-list .no-content {
    display: block;
-   width:100%;
+   width: 100%;
    text-align: center;
    margin-top: 200px;
    font-size: 20px;
@@ -151,6 +156,7 @@
    margin: 0;
  }
  /*loading*/
+ 
  @font-face {
    font-family: anticon;
    src: url('//at.alicdn.com/t/font_1457169990_5499172.eot');
@@ -214,49 +220,46 @@
    display: block;
    font-family: anticon!important;
  }
-
+ 
  @-webkit-keyframes loadingCircle {
-    0% {
-        -webkit-transform-origin: 50% 50%;
-        transform-origin: 50% 50%;
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg)
-    }
-
-    to {
-        -webkit-transform-origin: 50% 50%;
-        transform-origin: 50% 50%;
-        -webkit-transform: rotate(1turn);
-        transform: rotate(1turn)
-    }
-}
-
-@keyframes loadingCircle {
-    0% {
-        -webkit-transform-origin: 50% 50%;
-        transform-origin: 50% 50%;
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg)
-    }
-
-    to {
-        -webkit-transform-origin: 50% 50%;
-        transform-origin: 50% 50%;
-        -webkit-transform: rotate(1turn);
-        transform: rotate(1turn)
-    }
-}
-
-
-.project-loading {
-  display: none;
-  position: absolute;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
-  width:50px;
-  height: 50px;
-  color:#1e90ff;
-  font-size: 50px;
-  z-index: 100;
-}
+   0% {
+     -webkit-transform-origin: 50% 50%;
+     transform-origin: 50% 50%;
+     -webkit-transform: rotate(0deg);
+     transform: rotate(0deg)
+   }
+   to {
+     -webkit-transform-origin: 50% 50%;
+     transform-origin: 50% 50%;
+     -webkit-transform: rotate(1turn);
+     transform: rotate(1turn)
+   }
+ }
+ 
+ @keyframes loadingCircle {
+   0% {
+     -webkit-transform-origin: 50% 50%;
+     transform-origin: 50% 50%;
+     -webkit-transform: rotate(0deg);
+     transform: rotate(0deg)
+   }
+   to {
+     -webkit-transform-origin: 50% 50%;
+     transform-origin: 50% 50%;
+     -webkit-transform: rotate(1turn);
+     transform: rotate(1turn)
+   }
+ }
+ 
+ .project-loading {
+   display: none;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 50px;
+   height: 50px;
+   color: #1e90ff;
+   font-size: 50px;
+   z-index: 100;
+ }
