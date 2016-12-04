@@ -5,27 +5,22 @@ import { connect } from 'react-redux'
 
 import MainList from '../components/mainList.jsx'
 import MySearchBar from '../components/searchBar.jsx'
-import CategoryGrid from '../components/categoryGrid.jsx'
-import PageNum from '../components/pageNum.jsx'
 import Nav from '../components/nav.jsx'
 
 import actions from '../actions'
 
-// import 'antd-mobile/dist/antd-mobile.css'
-import '../style.css'
-
-const CONFIG = {
-  /**
-   * 每页条数
-   */
-  perPage: 10
-}
-
+import '../style.scss'
 
 const MainView = React.createClass({
   _getArticleByCategoryName(categoryName) {
-    console.log(categoryName)
-    this.props.actions.getArticleListStart(categoryName) 
+    this.props.actions.getArticleListStart(categoryName)
+  },
+
+  _getSearchListStart(searchText) {
+    var searchTag = this.props.searchTag
+    return () => {
+       this.props.actions.getSearchListStart(searchText,searchTag)
+    }
   },
   componentWillMount() {
     this._getArticleByCategoryName(this.props.categoryName)
@@ -36,23 +31,12 @@ const MainView = React.createClass({
     }
   },
   render() {
-    const {isLoading, articleList} = this.props
+    const {isLoading, articleList, pageTitle, renderCategory} = this.props
     return (
       <div>
-        <Nav title="环渤海" goBack={this.props.router.goBack} />
-        <CategoryGrid>
-          <CategoryGrid.Row>
-            <CategoryGrid.Item name={'市长联席会'} path={'/category/mayor'} />
-            <CategoryGrid.Item name={'区域合作'} path={'/category/cooperation'} />
-            <CategoryGrid.Item name={'经济产业'} path={'/category/economy'} />
-          </CategoryGrid.Row>
-          <CategoryGrid.Row>
-            <CategoryGrid.Item name={'科技人才'} path={'/category/technology'} />
-            <CategoryGrid.Item name={'展会推广'} path={'/category/exhibition'} />
-            <CategoryGrid.Item name={'重要会议'} path={'/category/meeting'} />
-          </CategoryGrid.Row>
-        </CategoryGrid>
-        <MySearchBar />
+        <Nav title={pageTitle} goBack={this.props.router.goBack} />
+        {renderCategory()}
+        <MySearchBar getSearchListStart={this._getSearchListStart} />
         <MainList articleList={articleList} isLoading={isLoading} />
         {/*!isLoading ? <PageNum /> : null*/}
       </div>

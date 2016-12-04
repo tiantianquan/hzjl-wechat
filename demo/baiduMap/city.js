@@ -72,29 +72,29 @@ City.prototype.clearMarker = function () {
 
 City.prototype.registMarkerClick = function () {
   var that = this
-  // this.marker.addEventListener('click', function () {
-  //   console.log(1)
-  //   Project.removeDom()
-  //   Project.showList()
-  //   Project.showLoading()
-  //   Project.getAll(that.name, function (d) {
-  //     Project.ctrlDom(d)
-  //     Project.hideLoading()
-  //   })
-  // })
+    // this.marker.addEventListener('click', function () {
+    //   console.log(1)
+    //   Project.removeDom()
+    //   Project.showList()
+    //   Project.showLoading()
+    //   Project.getAll(that.name, function (d) {
+    //     Project.ctrlDom(d)
+    //     Project.hideLoading()
+    //   })
+    // })
 
 
   this.marker.touch = function () {
-    setTimeout(function(){
-          Project.removeDom()
-    Project.showList()
-    Project.showLoading()
-    Project.getAll(that.name, function (d) {
-      Project.ctrlDom(d)
-      Project.hideLoading()
-    })
+    setTimeout(function () {
+      Project.removeDom()
+      Project.showList()
+      Project.showLoading()
+      Project.getAll(that.name, function (d) {
+        Project.ctrlDom(d)
+        Project.hideLoading()
+      })
 
-    },300)
+    }, 300)
 
   }
 }

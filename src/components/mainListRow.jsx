@@ -5,8 +5,11 @@ const MainListRow = React.createClass({
     var {obj} = this.props
     if (!!obj.ThumbImgPath) {
       return (
-        <div className={'img-wrapper'}>
-          <img className={'item-img'} src={'/public' + obj.ThumbImgPath} />
+        <div className={'img-wrapper'} style={{
+          backgroundImage:'url(/public'+obj.ThumbImgPath+')'
+        }}>
+
+          {/*<img className={'item-img'} src={'/public' + obj.ThumbImgPath} />*/}
         </div>
       )
     }

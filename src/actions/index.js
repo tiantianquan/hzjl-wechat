@@ -25,10 +25,10 @@ function getArticleListEnd(data) {
   }
 }
 
-function getSearchListStart(searchText) {
+function getSearchListStart(searchText,tag) {
   return async function (dispatch) {
     dispatch(getSearchListLoading())
-    let data = await Api.getSearchByCategory(searchText)
+    let data = await Api.getSearchByCategory(searchText,tag)
     dispatch(getSearchListEnd(data))
   }
 }

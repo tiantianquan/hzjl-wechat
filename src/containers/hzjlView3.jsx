@@ -1,7 +1,7 @@
 import React from 'react'
 
 import CategoryGrid from '../components/categoryGrid.jsx'
-import HzjlView from './hzjlView.jsx'
+import MainView from './mainView.jsx'
 
 
 const HzjlView3 = React.createClass({
@@ -19,8 +19,8 @@ const HzjlView3 = React.createClass({
   },
   render() {
     return (
-      <HzjlView {...this.props} renderCategory={this._renderCategory}>
-      </HzjlView>
+      <MainView {...this.props} searchTag={'HZJL'} pageTitle={"天津市合作交流"} renderCategory={this._renderCategory}>
+      </MainView>
     )
   }
 })

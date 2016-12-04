@@ -1,4 +1,4 @@
-"use strict";
+'use strict'
 var webpack = require('webpack');
 var path = require('path');
 var loaders = require('./webpack.loaders');
@@ -6,9 +6,10 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const pxtorem = require('postcss-pxtorem');
 
-
 const HOST = process.env.HOST || "0.0.0.0";
 const PORT = process.env.PORT || "8888";
+const PROXY_TARGET = 'http://localhost:9999'
+// const PROXY_TARGET = 'http://192.168.1.166:9999'
 
 //global css
 loaders.push({
@@ -25,9 +26,10 @@ loaders.push({
 	exclude: /(node_modules|bower_components|public)/,
 	loaders: [
 		'style?sourceMap',
-		'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-		'sass',
-		'postcss-loader'
+		// 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+		'css',
+		'postcss-loader',
+		'sass'
 	]
 });
 
@@ -78,7 +80,15 @@ module.exports = {
 		// serve index.html in place of 404 responses to allow HTML5 history
 		historyApiFallback: true,
 		port: PORT,
-		host: HOST
+		host: HOST,
+		proxy: {
+      '/api/**': {
+        target: PROXY_TARGET,
+        secure: false
+      },
+			// changeOrigin: true
+    }
+
 	},
 	plugins: [
 		new webpack.NoErrorsPlugin(),

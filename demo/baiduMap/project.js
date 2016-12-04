@@ -9,8 +9,8 @@ url : "http://mp.weixin.qq.com/s?
  */
 
 // var url = 'http://localhost:19581/media/GetNewsbycity?cityName='
-var url = 'http://www.reegle.cn/api/news/GetNewsByCategory?category='
-// var url = 'http://localhost:9999/News/GetNewsByCategory?cityName='
+// var url = 'http://www.reegle.cn/api/news/GetNewsByCategory?category='
+var url = 'http://localhost:9999/api/News/GetNewsByCategory?category='
 
 var formatData = function (res) {
   res = JSON.parse(res)
@@ -23,7 +23,8 @@ var formatData = function (res) {
       title: item.title,
       digest: item.digest,
       thumb_url: item.thumb_url,
-      update_time:new Date(item.update_time)
+      update_time:new Date(item.update_time),
+      thumbImgPath:item.ThumbImgPath
     })
   })
 
@@ -47,9 +48,10 @@ Project.getAll = function (cityName, cb) {
 }
 
 Project.ctrlDom = function (data) {
-  // var prexUrl = 'http://read.html5.qq.com/image?src=forum&q=5&r=0&imgflag=7&imageUrl='
-  // prexUrl=''
   var imageUrl = './Lighthouse.jpg'
+  //  <div className={'img-wrapper'} style={{
+  //         backgroundImage:'url(/public'+obj.ThumbImgPath+')'
+  //       }}>
 
   function replTempl(item) {
     var templ =
@@ -62,7 +64,7 @@ Project.ctrlDom = function (data) {
         max-width: 80px;
         min-width: 80px;
         height: 60px;
-      " src=${imageUrl} />
+      " src=${'/public/'+item.thumbImgPath} />
       <div style="display: inline-block; overflow: hidden ">
         <h2 class="title">${item.title}</h2>
         <p class="desc" style="margin: 5px 0 5px 0">${item.update_time.getFullYear()+'年'+

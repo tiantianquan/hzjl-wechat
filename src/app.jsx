@@ -4,9 +4,8 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 
-import MainView from './containers/mainView.jsx'
-import CityView from './containers/cityView.jsx'
-import HzjlView from './containers/hzjlView.jsx'
+import HbhProjectView from './containers/hbhProjectView.jsx'
+import HbhCityView from './containers/hbhCityView.jsx'
 import HzjlView1 from './containers/hzjlView1.jsx'
 import HzjlView2 from './containers/hzjlView2.jsx'
 import HzjlView3 from './containers/hzjlView3.jsx'
@@ -31,44 +30,30 @@ const history = syncHistoryWithStore(browserHistory, store)
 
 const routeConfig = [
   {
-    path: '/',
-    component: MainView,
-    indexRoute: { component: MainView },
+    path: '/hbhProject',
+    component: HbhProjectView,
+    indexRoute: { component: HbhProjectView },
     childRoutes: [
       {
         path: 'category/:categoryName',
-        component: MainView
+        component: HbhProjectView
       },
     ],
     onEnter: function () {
-      document.getElementsByTagName('title')[0].innerText = '环渤海'
+      document.title =  '环渤海区域合作'
     }
   }, {
-    path: '/city',
-    component: CityView,
-    indexRoute: { component: CityView },
+    path: '/hbhCity',
+    component: HbhCityView,
+    indexRoute: { component: HbhCityView },
     childRoutes: [
       {
         path: 'category/:categoryName',
-        component: CityView
+        component: HbhCityView
       }
     ],
     onEnter: function () {
-      document.getElementsByTagName('title')[0].innerText = '环渤海'
-    }
-  },
-  {
-    path: '/hzjl',
-    component: HzjlView,
-    indexRoute: { component: HzjlView },
-    childRoutes: [
-      {
-        path: 'category/:categoryName',
-        component: HzjlView
-      }
-    ],
-    onEnter: function () {
-      document.getElementsByTagName('title')[0].innerText = '天津市合作交流'
+      document.title =  '环渤海区域合作'
     }
   },
   {
@@ -82,7 +67,7 @@ const routeConfig = [
       }
     ],
     onEnter: function () {
-      document.getElementsByTagName('title')[0].innerText = '天津市合作交流'
+      document.title =  '天津市合作交流'
     }
   },
   {
@@ -96,10 +81,10 @@ const routeConfig = [
       }
     ],
     onEnter: function () {
-      document.getElementsByTagName('title')[0].innerText = '天津市合作交流'
+      document.title =  '天津市合作交流'
     }
   },
-   {
+  {
     path: '/hzjl3',
     component: HzjlView3,
     indexRoute: { component: HzjlView3 },
@@ -110,7 +95,7 @@ const routeConfig = [
       }
     ],
     onEnter: function () {
-      document.getElementsByTagName('title')[0].innerText = '天津市合作交流'
+      document.title =  '天津市合作交流'
     }
   }
 ]
