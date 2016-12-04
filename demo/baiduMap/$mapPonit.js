@@ -1363,5 +1363,4 @@ var resCitys = [{
 }]
 
 
-
-console.log(JSON.stringify(resCitys))
+module.exports = all

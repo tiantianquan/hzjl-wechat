@@ -6,7 +6,7 @@ var map = new BMap.Map(
     //最小缩放
     // minZoom: 7,
     //最大缩放
-    // maxZoom: 10
+    maxZoom: 9
   }
 )
 map.centerAndZoom('北京', 6)

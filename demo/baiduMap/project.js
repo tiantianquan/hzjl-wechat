@@ -23,8 +23,8 @@ var formatData = function (res) {
       title: item.title,
       digest: item.digest,
       thumb_url: item.thumb_url,
-      update_time:new Date(item.update_time),
-      thumbImgPath:item.ThumbImgPath
+      update_time: new Date(item.update_time),
+      thumbImgPath: item.ThumbImgPath
     })
   })
 
@@ -49,30 +49,37 @@ Project.getAll = function (cityName, cb) {
 
 Project.ctrlDom = function (data) {
   var imageUrl = './Lighthouse.jpg'
-  //  <div className={'img-wrapper'} style={{
-  //         backgroundImage:'url(/public'+obj.ThumbImgPath+')'
-  //       }}>
+    //  <div className={'img-wrapper'} style={{
+    //         backgroundImage:'url(/public'+obj.ThumbImgPath+')'
+    //       }}>
 
   function replTempl(item) {
-    var templ =
-      `  
-    <a href=${item.url} class="main-list-item" >
-    <div style="display: -webkit-box; display: flex">
-      <img style="
-        margin-right: 10px;
-        display: block;
-        max-width: 80px;
-        min-width: 80px;
-        height: 60px;
-      " src=${'/public/'+item.thumbImgPath} />
-      <div style="display: inline-block; overflow: hidden ">
-        <h2 class="title">${item.title}</h2>
-        <p class="desc" style="margin: 5px 0 5px 0">${item.update_time.getFullYear()+'年'+
-     (item.update_time.getMonth()+1)+'月'+item.update_time.getDate()+'日'}</p>
-        <p class="desc">${item.digest}</p>
-      </div>
-    </div>
-  </a>`
+    //   var templ =
+    //     `
+    //   <a href=${item.url} class="main-list-item" >
+    //   <div style="display: -webkit-box; display: -webkit-flex;display: flex">
+    //     <div style="
+    //      position: relative;
+    // margin-right: 10px;
+    // -webkit-flex:1;
+    //  flex:1;
+    // overflow: hidden;
+    // background-image:url(${'/public/'+item.thumbImgPath});
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-position: center,center;
+
+    //     "/>
+    //     <div style="-webkit-flex:2;flex:2; overflow: hidden ">
+    //       <h2 class="title">${item.title}</h2>
+    //       <p class="desc" style="margin: 5px 0 5px 0">${item.update_time.getFullYear()+'年'+
+    //    (item.update_time.getMonth()+1)+'月'+item.update_time.getDate()+'日'}</p>
+    //       <p class="desc">${item.digest}</p>
+    //     </div>
+    //   </div>
+    // </a>`
+
+  var templ = '\n      <a href=' + item.url + ' class="main-list-item" >\n      <div style="display: -webkit-box; display: -webkit-flex;display: flex">\n        <div style="\n          position: relative;\n    margin-right: 10px;\n    -webkit-flex:1;\n      flex:1;\n    overflow: hidden;\n    background-image:url(' + ('/public/' + item.thumbImgPath) + ');\n    background-repeat: no-repeat;\n    background-size: cover;\n    background-position: center,center;\n\n        "/>\n        <div style="-webkit-flex:2;flex:2; overflow: hidden ">\n          <h2 class="title">' + item.title + '</h2>\n          <p class="desc" style="margin: 5px 0 5px 0">' + (item.update_time.getFullYear() + '年' + (item.update_time.getMonth() + 1) + '月' + item.update_time.getDate() + '日') + '</p>\n          <p class="desc">' + item.digest + '</p>\n        </div>\n      </div>\n    </a>';
 
     return templ
   }

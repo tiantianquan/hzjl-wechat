@@ -8,9 +8,10 @@ function initBar() {
  * 返回按钮绑定事件
  */
 function back() {
-  if (!preState.Province)
-    return
+  // if (!preState.Province)
+  //   return
   changePage(function () {
+    map.disableDragging()
     map.centerAndZoom('北京', 6)
     City.clearMarker()
     Province.clearOverlay()
@@ -39,6 +40,12 @@ function zoomProvince(point) {
   if (!!p) {
     clearOverlay()
     changePage(function () {
+      if(p.name==='内蒙古'){
+        map.enableDragging()
+      }
+      else{
+        map.disableDragging()
+      }
       map.centerAndZoom(p.viewCenter || p.name, p.viewZ)
       City.list.forEach(function (c) {
         if (!!p.getPointInProvinces(new BMap.Point(c.x, c.y))) {

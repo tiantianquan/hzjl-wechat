@@ -42,9 +42,13 @@ City.prototype.addMarker = function () {
   var point = new BMap.Point(this.x, this.y)
   var marker = new BMap.Marker(point)
 
+var xOffset = 0
+  if(this.name.length>=4){
+      xOffset = -20
+  }
   var opts = {
     position: new BMap.Point(this.x, this.y), // 指定文本标注所在的地理位置
-    offset: new BMap.Size(0, 28) //设置文本偏移量
+    offset: new BMap.Size(xOffset, 28) //设置文本偏移量
   }
   var label = new BMap.Label(this.name, opts) // 创建文本标注对象
   label.setStyle({
