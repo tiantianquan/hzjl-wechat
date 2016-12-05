@@ -11,13 +11,13 @@ url : "http://mp.weixin.qq.com/s?
 // var url = 'http://localhost:19581/media/GetNewsbycity?cityName='
 // var url = 'http://www.reegle.cn/api/news/GetNewsByCategory?category='
 // var url = 'http://localhost:9999/api/News/GetNewsByCategory?category='
- var url = '/api/News/GetNewsByCategory?category='
+//  var url = '/api/News/GetNewsByCategory?category='
+var url = 'http://wx.jjhz-tj.gov.cn/api/News/GetNewsByCategory?category='
 
 var formatData = function (res) {
   res = JSON.parse(res)
   var data = []
   res.forEach(function (d) {
-    console.log(d.update_time)
     item = d
     data.push({
       url: item.url,
@@ -42,7 +42,7 @@ Project.hideList = function () {
   $('.project-wrapper').hide()
 }
 
-Project.getAll = function (cityName, cb) {
+Project.getAll = function (cityName, category, cb) {
   $.get(url + cityName, function (res) {
     cb(formatData(res))
   })
@@ -51,40 +51,33 @@ Project.getAll = function (cityName, cb) {
 Project.ctrlDom = function (data) {
 
   var imageUrl = '/image/normal.jpg'
-    //  <div className={'img-wrapper'} style={{
-    //         backgroundImage:'url(/public'+obj.ThumbImgPath+')'
-    //       }}>
 
   function replTempl(item) {
-    //   var templ =
-    //     `
-    //   <a href=${item.url} class="main-list-item" >
-    //   <div style="display: -webkit-box; display: -webkit-flex;display: flex">
-    //     <div style="
-    //      position: relative;
-    // margin-right: 10px;
-    // -webkit-flex:1;
-    //  flex:1;
-    // overflow: hidden;
-    // background-image:url(${'/public/'+item.thumbImgPath});
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    // background-position: center,center;
-
-    //     "/>
-    //     <div style="-webkit-flex:2;flex:2; overflow: hidden ">
-    //       <h2 class="title">${item.title}</h2>
-    //       <p class="desc" style="margin: 5px 0 5px 0">${item.update_time.getFullYear()+'年'+
-    //    (item.update_time.getMonth()+1)+'月'+item.update_time.getDate()+'日'}</p>
-    //       <p class="desc">${item.digest}</p>
-    //     </div>
-    //   </div>
-    // </a>`
-    if(!item.thumbImgPath){
-      item.thumbImgPath=imageUrl
+    if (!item.thumbImgPath) {
+      item.thumbImgPath = imageUrl
+    } else {
+      item.thumbImgPath = '/public' + item.thumbImgPath
     }
 
-  var templ = '\n      <a href=' + item.url + ' class="main-list-item" >\n      <div style="display: -webkit-box; display: -webkit-flex;display: flex">\n        <div style="\n          position: relative;\n    margin-right: 10px;\n    -webkit-flex:1;\n      flex:1;\n    overflow: hidden;\n    background-image:url(\'' + ('/public/' + item.thumbImgPath) + '\');\n    background-repeat: no-repeat;\n    background-size: cover;\n    background-position: center,center;\n\n        "/>\n        <div style="-webkit-flex:2;flex:2; overflow: hidden ">\n          <h2 class="title">' + item.title + '</h2>\n          <p class="desc" style="margin: 5px 0 5px 0">' + (item.update_time.getFullYear() + '年' + (item.update_time.getMonth() + 1) + '月' + item.update_time.getDate() + '日') + '</p>\n          <p class="desc">' + item.digest + '</p>\n        </div>\n      </div>\n    </a>';
+//     var templ =
+//       `
+//      <a href=${item.url} class="main-list-item">
+//   <div class="project-list-row">
+//     <div style="
+//          background-image:url('${item.thumbImgPath}');
+//           " class="project-list-row-img"/>
+//     <div class="desc-wrapper">
+//       <h2 class="title">${item.title}</h2>
+//       <p class="desc digest" >${item.update_time.getFullYear()+'年'+ (item.update_time.getMonth()+1)+'月'+item.update_time.getDate()+'日'}
+//       </p>
+//       <p class="desc">${item.digest}</p>
+//     </div>
+//   </div>
+// </a>`
+
+
+
+    var templ =  '\n     <a href=' + item.url + ' class="main-list-item">\n  <div class="project-list-row">\n    <div style="\n         background-image:url(\'' + item.thumbImgPath + '\');\n          " class="project-list-row-img"/>\n    <div class="desc-wrapper">\n      <h2 class="title">' + item.title + '</h2>\n      <p class="desc digest" >' + (item.update_time.getFullYear() + '年' + (item.update_time.getMonth() + 1) + '月' + item.update_time.getDate() + '日') + '\n      </p>\n      <p class="desc">' + item.digest + '</p>\n    </div>\n  </div>\n</a>'
 
     return templ
   }
@@ -111,3 +104,43 @@ Project.showLoading = function () {
 Project.hideLoading = function () {
   $('.project-loading').hide()
 }
+
+Project.bindTopBarEvent = function () {
+  $('.top-grid-item.project').on('click', function () {
+    Project.showRowItem('project')
+  })
+
+
+  $('.top-grid-item.policy').on('click', function () {
+    Project.showRowItem('policy')
+  })
+}
+
+Project.showRowItem = function (category) {
+  Project.focusTopbarItem(category)
+  Project.removeDom()
+  Project.showList()
+  Project.showLoading()
+  Project.getAll(Project.cityName, null, function (d) {
+    if (category == 'policy') {
+      d = []
+    }
+    setTimeout(function () {
+      Project.ctrlDom(d)
+      Project.hideLoading()
+    }, 500)
+
+  })
+
+
+}
+
+Project.focusTopbarItem = function (category) {
+  $('.top-grid-item').css('background', '#fff')
+  $('.top-grid-item').css('color', '#000')
+  $('.top-grid-item.' + category).css('background', '#1e90ff')
+  $('.top-grid-item.' + category).css('color', '#fff')
+}
+
+
+Project.bindTopBarEvent()

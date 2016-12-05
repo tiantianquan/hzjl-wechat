@@ -15,5 +15,6 @@ gulp.task('html', function () {
 
 gulp.task('watch', function () {
   gulp.watch(['./demo/**/*.*'], ['html']);
-});
+})
+
 gulp.task('default', ['connect', 'watch']);

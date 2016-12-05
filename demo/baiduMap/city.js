@@ -42,9 +42,9 @@ City.prototype.addMarker = function () {
   var point = new BMap.Point(this.x, this.y)
   var marker = new BMap.Marker(point)
 
-var xOffset = 0
-  if(this.name.length>=4){
-      xOffset = -20
+  var xOffset = 0
+  if (this.name.length >= 4) {
+    xOffset = -20
   }
   var opts = {
     position: new BMap.Point(this.x, this.y), // 指定文本标注所在的地理位置
@@ -87,19 +87,9 @@ City.prototype.registMarkerClick = function () {
     //   })
     // })
 
-
   this.marker.touch = function () {
-    setTimeout(function () {
-      Project.removeDom()
-      Project.showList()
-      Project.showLoading()
-      Project.getAll(that.name, function (d) {
-        Project.ctrlDom(d)
-        Project.hideLoading()
-      })
-
-    }, 300)
-
+    Project.cityName = that.name
+    Project.showRowItem('project')
   }
 }
 

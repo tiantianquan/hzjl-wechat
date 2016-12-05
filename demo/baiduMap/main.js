@@ -26,6 +26,20 @@ var preState = {}
 
 
 
+// Project.removeDom()
+// Project.showList()
+// Project.showLoading()
+// Project.getAll('保定',null, function (d) {
+//   setTimeout(function () {
+//     Project.ctrlDom(d)
+//     Project.hideLoading()
+
+//   }, 500)
+
+// })
+
+
+
 //渲染-----------------------------------------------------------------------
 
 /**
@@ -63,15 +77,27 @@ Province.addOverlay()
 
 initBar()
 
-map.addEventListener('touchend', function (e) {
+var touchstartTime
+var touchendTime
+
+map.addEventListener('touchstart', function (e) {
   // e.domEvent.srcElement.click()
-  console.log(e)
-  if (!!e.overlay&&!!e.overlay.touch) {
-    e.overlay.touch()
-  } else {
-    zoomProvince(e.point)
+  touchstartTime = Date.now()
+
+})
+
+map.addEventListener('touchend', function (e) {
+  touchendTime = Date.now()
+  var span = touchendTime - touchstartTime
+  if (span < 500) {
+    if (!!e.overlay && !!e.overlay.touch) {
+      e.overlay.touch()
+    } else {
+      zoomProvince(e.point)
+    }
+    return
   }
-  return
+
 })
 
 /**

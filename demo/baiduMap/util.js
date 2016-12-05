@@ -70,8 +70,8 @@ function changePage(cb) {
     $('.mask').addClass('mask-hide')
     setTimeout(function () {
       $('.mask').removeClass('mask-hide')
-    }, 200)
-  }, 200)
+    }, 500)
+  }, 500)
 }
 
 
