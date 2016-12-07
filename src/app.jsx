@@ -4,7 +4,8 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 
-import HbhProjectView from './containers/hbhProjectView.jsx'
+import HbhProjectView1 from './containers/hbhProjectView1.jsx'
+import HbhProjectView2 from './containers/hbhProjectView2.jsx'
 import HbhCityView from './containers/hbhCityView.jsx'
 import HzjlView1 from './containers/hzjlView1.jsx'
 import HzjlView2 from './containers/hzjlView2.jsx'
@@ -30,17 +31,30 @@ const history = syncHistoryWithStore(browserHistory, store)
 
 const routeConfig = [
   {
-    path: '/hbhProject',
-    component: HbhProjectView,
-    indexRoute: { component: HbhProjectView },
+    path: '/hbhProject1',
+    component: HbhProjectView1,
+    indexRoute: { component: HbhProjectView1 },
     childRoutes: [
       {
         path: 'category/:categoryName',
-        component: HbhProjectView
+        component: HbhProjectView1
       },
     ],
     onEnter: function () {
-      document.title =  '环渤海区域合作'
+      document.title = '环渤海区域合作'
+    }
+  }, {
+    path: '/hbhProject2',
+    component: HbhProjectView2,
+    indexRoute: { component: HbhProjectView2 },
+    childRoutes: [
+      {
+        path: 'category/:categoryName',
+        component: HbhProjectView2
+      },
+    ],
+    onEnter: function () {
+      document.title = '环渤海区域合作'
     }
   }, {
     path: '/hbhCity',
@@ -53,7 +67,7 @@ const routeConfig = [
       }
     ],
     onEnter: function () {
-      document.title =  '环渤海区域合作'
+      document.title = '环渤海区域合作'
     }
   },
   {
@@ -67,7 +81,7 @@ const routeConfig = [
       }
     ],
     onEnter: function () {
-      document.title =  '天津市合作交流'
+      document.title = '天津市合作交流'
     }
   },
   {
@@ -81,7 +95,7 @@ const routeConfig = [
       }
     ],
     onEnter: function () {
-      document.title =  '天津市合作交流'
+      document.title = '天津市合作交流'
     }
   },
   {
@@ -95,7 +109,7 @@ const routeConfig = [
       }
     ],
     onEnter: function () {
-      document.title =  '天津市合作交流'
+      document.title = '天津市合作交流'
     }
   }
 ]

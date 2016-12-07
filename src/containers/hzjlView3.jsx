@@ -19,7 +19,7 @@ const HzjlView3 = React.createClass({
   },
   render() {
     return (
-      <MainView {...this.props} searchTag={'HZJL'} pageTitle={"天津市合作交流"} renderCategory={this._renderCategory}>
+      <MainView {...this.props} searchTag={'HZJL'} pageTitle={"合作支援"} renderCategory={this._renderCategory}>
       </MainView>
     )
   }

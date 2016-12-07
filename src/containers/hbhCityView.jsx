@@ -17,7 +17,7 @@ const HbhCityView = React.createClass({
   },
   render() {
     return (
-      <MainView {...this.props} searchTag={'HBH'} pageTitle={"环渤海区域合作"} renderCategory={this._renderCategory}>
+      <MainView {...this.props} searchTag={'HBH'} pageTitle={"区域概况"} renderCategory={this._renderCategory}>
       </MainView>
     )
   }
