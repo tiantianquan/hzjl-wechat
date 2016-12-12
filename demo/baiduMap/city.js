@@ -89,7 +89,7 @@ City.prototype.registMarkerClick = function () {
 
   this.marker.touch = function () {
     Project.cityName = that.name
-    Project.showRowItem('project')
+    Project.showRowItem(null)
   }
 }
 

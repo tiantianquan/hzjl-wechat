@@ -8,11 +8,9 @@ title : "【葫芦岛】兴城滨海温泉新城商业综合体项目"
 url : "http://mp.weixin.qq.com/s?
  */
 
-// var url = 'http://localhost:19581/media/GetNewsbycity?cityName='
-// var url = 'http://www.reegle.cn/api/news/GetNewsByCategory?category='
-// var url = 'http://localhost:9999/api/News/GetNewsByCategory?category='
-//  var url = '/api/News/GetNewsByCategory?category='
-var url = 'http://wx.jjhz-tj.gov.cn/api/News/GetNewsByCategory?category='
+var url = 'http://localhost:9999/api/News/GetMapNewsByCategory?category='
+
+// var url = 'http://wx.jjhz-tj.gov.cn/api/News/GetMapNewsByCategory?category='
 
 var formatData = function (res) {
   res = JSON.parse(res)
@@ -43,7 +41,11 @@ Project.hideList = function () {
 }
 
 Project.getAll = function (cityName, category, cb) {
-  $.get(url + cityName, function (res) {
+  var getUrl = url+cityName
+  if(!!category){
+    getUrl += '&mapCategory='+category
+  }
+  $.get(getUrl, function (res) {
     cb(formatData(res))
   })
 }
@@ -107,12 +109,12 @@ Project.hideLoading = function () {
 
 Project.bindTopBarEvent = function () {
   $('.top-grid-item.project').on('click', function () {
-    Project.showRowItem('project')
+    Project.showRowItem(null)
   })
 
 
   $('.top-grid-item.policy').on('click', function () {
-    Project.showRowItem('policy')
+    Project.showRowItem('投资政策')
   })
 }
 
@@ -121,10 +123,10 @@ Project.showRowItem = function (category) {
   Project.removeDom()
   Project.showList()
   Project.showLoading()
-  Project.getAll(Project.cityName, null, function (d) {
-    if (category == 'policy') {
-      d = []
-    }
+  Project.getAll(Project.cityName, category, function (d) {
+    // if (category == 'policy') {
+    //   d = []
+    // }
     setTimeout(function () {
       Project.ctrlDom(d)
       Project.hideLoading()
