@@ -178,7 +178,7 @@ url : "http://mp.weixin.qq.com/s?
 
 //var url = 'http://localhost:9999/api/News/GetMapNewsByCategory?category='
 
- var url = 'http://wx.jjhz-tj.gov.cn/api/News/GetMapNewsByCategory?category='
+var url = 'http://wx.jjhz-tj.gov.cn/api/News/GetMapNewsByCategory?category='
 
 var formatData = function (res) {
   res = JSON.parse(res)
@@ -282,7 +282,7 @@ Project.bindTopBarEvent = function () {
 
 
   $('.top-grid-item.policy').on('click', function () {
-    Project.showRowItem('投资政策')
+    Project.showRowItem('区域政策')
   })
 }
 

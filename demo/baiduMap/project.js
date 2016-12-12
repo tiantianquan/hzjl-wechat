@@ -114,7 +114,7 @@ Project.bindTopBarEvent = function () {
 
 
   $('.top-grid-item.policy').on('click', function () {
-    Project.showRowItem('投资政策')
+    Project.showRowItem('区域政策')
   })
 }
 
