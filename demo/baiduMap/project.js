@@ -8,9 +8,9 @@ title : "【葫芦岛】兴城滨海温泉新城商业综合体项目"
 url : "http://mp.weixin.qq.com/s?
  */
 
-var url = 'http://localhost:9999/api/News/GetMapNewsByCategory?category='
+//var url = 'http://localhost:9999/api/News/GetMapNewsByCategory?category='
 
-// var url = 'http://wx.jjhz-tj.gov.cn/api/News/GetMapNewsByCategory?category='
+var url = 'http://wx.jjhz-tj.gov.cn/api/News/GetMapNewsByCategory?category='
 
 var formatData = function (res) {
   res = JSON.parse(res)
