@@ -12,7 +12,6 @@ const HbhProjectView1 = React.createClass({
           <CategoryGrid.Item name={'市长联席会'} path={'/hbhProject1/category/市长联席会'} />
           <CategoryGrid.Item name={'区域合作组织'} path={'/hbhProject1/category/区域合作组织'} />
         </CategoryGrid.Row>
-        
       </CategoryGrid>
     )
   },

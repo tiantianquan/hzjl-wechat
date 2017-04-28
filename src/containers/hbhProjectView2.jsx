@@ -12,7 +12,7 @@ const HbhProjectView2 = React.createClass({
           <CategoryGrid.Item name={'经贸产业'} path={'/hbhProject2/category/经贸产业'} />
           {/*<CategoryGrid.Item name={'科技人才'} path={'/hbhProject2/category/科技人才'} />*/}
           <CategoryGrid.Item name={'展会推广'} path={'/hbhProject2/category/展会推广'} />
-          <CategoryGrid.Item name={'会议活动'} path={'/hbhProject2/category/重要会议'} />
+          <CategoryGrid.Item name={'会议活动'} path={'/hbhProject2/category/会议活动'} />
         </CategoryGrid.Row>
       </CategoryGrid>
     )

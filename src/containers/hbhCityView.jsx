@@ -3,7 +3,6 @@ import React from 'react'
 import CategoryGrid from '../components/categoryGrid.jsx'
 import MainView from './mainView.jsx'
 
-
 const HbhCityView = React.createClass({
   _renderCategory() {
     return (
@@ -17,8 +16,12 @@ const HbhCityView = React.createClass({
   },
   render() {
     return (
-      <MainView {...this.props} searchTag={'HBH'} pageTitle={"区域概况"} renderCategory={this._renderCategory}>
-      </MainView>
+      <MainView
+        {...this.props}
+        searchTag={'HBH'}
+        pageTitle={'区域概况'}
+        renderCategory={this._renderCategory}
+      />
     )
   }
 })

@@ -1,12 +1,3 @@
-/** 
- * Author 岳晓 
- *  
- * 对百度地图的事件扩展，目前扩展了fastclick和longclick, 
- * 解决某些设备click不执行的问题 
- * 解决长按事件在拖动、多触点依然执行的bug 
- * v1.0.0 
- */
-
 (function () {
   BMap.Map.prototype.on = function (evt, fn, option) {
     var _option = {

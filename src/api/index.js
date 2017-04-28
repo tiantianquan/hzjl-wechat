@@ -10,7 +10,7 @@ class Api {
 
 
   static async getNewsByCategory(category) {
-    var url='api/news/GetNewsByCategory?category='
+    var url='api/MobileNews/GetNewsByCategory?category='
     var res = await axios.get(this.urlPrex +url+ category)
     res.data.forEach(i => {
       i.update_time = new Date(i.update_time)
@@ -23,7 +23,7 @@ class Api {
 
 
   static async getSearchByCategory(searchText,tag) {
-    var url = `${this.urlPrex}api/news/GetNewsBySearchText?searchtext=${searchText}&searchtag=${tag}`
+    var url = `${this.urlPrex}api/MobileNews/GetNewsBySearchText?searchtext=${searchText}&searchtag=${tag}`
     var res = await axios.get(url)
     res.data.forEach(i => {
       i.update_time = new Date(i.update_time)
